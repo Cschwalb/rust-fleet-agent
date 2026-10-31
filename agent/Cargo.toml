@@ -1,0 +1,31 @@
+[package]
+name = "fleet-agent"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Overt, authenticated remote administration agent for machines you own."
+
+[[bin]]
+name = "fleet-agent"
+path = "src/main.rs"
+
+[dependencies]
+fleet-common = { path = "../common" }
+serde.workspace = true
+serde_json.workspace = true
+tokio.workspace = true
+tokio-rustls.workspace = true
+rustls.workspace = true
+rustls-pemfile.workspace = true
+rcgen.workspace = true
+sha2.workspace = true
+anyhow.workspace = true
+tracing.workspace = true
+tracing-subscriber.workspace = true
+clap.workspace = true
+toml.workspace = true
+sysinfo.workspace = true
+directories.workspace = true
+
+[target.'cfg(windows)'.dependencies]
+windows-service = "0.7.0"
